@@ -8,3 +8,10 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Application structure
+- Keep the publication and its initial article on the index route; the requested experience is one editorial reading page.
+- Store uploaded media as Lovable Assets JSON pointers and import their URLs; this preserves originals without committing binaries.
+- Define the editorial design system in src/styles.css using semantic tokens; this keeps visual changes consistent.
+- Use browser-only handlers for sharing and downloading static assets; the publication requires no paid backend services.
+- Pre-optimize React and used Radix UI dependencies together in Vite; late dependency discovery can mix browser-cached React instances and break hooks.
