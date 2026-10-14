@@ -14,3 +14,4 @@
 - Store uploaded media as Lovable Assets JSON pointers and import their URLs; this preserves originals without committing binaries.
 - Define the editorial design system in src/styles.css using semantic tokens; this keeps visual changes consistent.
 - Use browser-only handlers for sharing and downloading static assets; the publication requires no paid backend services.
+- Pre-optimize React and used Radix UI dependencies together in Vite; late dependency discovery can mix browser-cached React instances and break hooks.
