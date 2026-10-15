@@ -10,7 +10,7 @@
 <!-- LOVABLE:END -->
 
 ## Application structure
-- Keep the publication and its initial article on the index route; the requested experience is one editorial reading page.
+- Keep the shared publication header and footer in a reusable shell around the root Outlet; Home, Linkedin, Posts and About have separate routes, and articles are children of the Posts layout so navigation and deep links remain consistent.
 - Store uploaded media as Lovable Assets JSON pointers and import their URLs; this preserves originals without committing binaries.
 - Define the editorial design system in src/styles.css using semantic tokens; this keeps visual changes consistent.
 - Use browser-only handlers for sharing and downloading static assets; the publication requires no paid backend services.
