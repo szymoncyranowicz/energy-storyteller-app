@@ -1,5 +1,7 @@
 import { Link } from '@tanstack/react-router';
+import { Linkedin } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { LINKEDIN_PROFILE_URL } from '@/lib/links';
 
 export function PublicationShell({ children }: { children: ReactNode }) {
   return <div className="site-wrap">
@@ -13,6 +15,12 @@ export function PublicationShell({ children }: { children: ReactNode }) {
       </nav>
     </header>
     <main>{children}</main>
-    <footer className="site-footer"><div><span className="footer-logo">EnergyVis.</span>Departament Ryzyka</div><span>Polski rynek energii.<br className="sm:hidden"/> Perspektywa oparta na danych.</span></footer>
+    <footer className="site-footer">
+      <div><span className="footer-logo">EnergyVis.</span>Departament Ryzyka</div>
+      <div className="footer-right">
+        <span>Polski rynek energii.<br className="sm:hidden"/> Perspektywa oparta na danych.</span>
+        <a className="footer-social" href={LINKEDIN_PROFILE_URL} target="_blank" rel="noreferrer"><Linkedin className="size-3"/>LinkedIn</a>
+      </div>
+    </footer>
   </div>;
 }

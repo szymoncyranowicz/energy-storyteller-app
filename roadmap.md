@@ -1,4 +1,6 @@
 # EnergyVis
+- [x] Link the supplied LinkedIn profile URL from the Linkedin page, the About page and the site footer.
+
 - [x] Provide Polish instructions for hosting and connecting energyvis.pl.
 - [x] Preserve the current colors and visual style while creating Home, Linkedin, Posts and About navigation.
 - [x] Move the supplied article to its own page and verify navigation, reading and chart controls.

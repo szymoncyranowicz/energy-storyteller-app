@@ -141,6 +141,19 @@
 .about-topics { display: grid; grid-template-columns: 1fr 1fr; margin: 28px 0; }
 .about-topics span { padding: 17px 0; border-top: 1px solid var(--border); font-size: 12px; }
 .linkedin-topics { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 35px; }
+.profile-card { display: flex; align-items: center; gap: 16px; border: 1px solid var(--border); border-radius: 4px; background: var(--card); padding: 18px 20px; margin-bottom: 36px; text-decoration: none; color: inherit; }
+.profile-card:hover { border-color: var(--primary); }
+.profile-avatar { flex: 0 0 42px; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--secondary); color: var(--primary); }
+.profile-copy { display: flex; flex-direction: column; gap: 4px; margin-right: auto; }
+.profile-name { font-size: 14px; font-weight: 600; }
+.profile-role { font-size: 11px; color: var(--muted-foreground); }
+.profile-cta { display: inline-flex; align-items: center; gap: 10px; font-size: 11px; font-weight: 600; color: var(--primary); white-space: nowrap; }
+.about-contact { display: flex; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid var(--border); padding-top: 17px; margin-bottom: 26px; font-size: 12px; color: var(--muted-foreground); }
+.about-contact a { display: inline-flex; align-items: center; gap: 8px; color: var(--primary); font-weight: 600; text-decoration: none; }
+.footer-right { display: flex; align-items: center; gap: 18px; }
+.footer-social { display: inline-flex; align-items: center; gap: 7px; color: inherit; text-decoration: none; }
+.footer-social:hover { color: var(--foreground); }
+
 .back-link { display: inline-flex; padding-top: 30px; color: var(--muted-foreground); font-size: 12px; text-decoration: none; }
 @media (max-width: 760px) {
   .site-header { height: auto; min-height: 110px; flex-wrap: wrap; gap: 8px; padding-block: 18px 5px; }
@@ -162,4 +175,6 @@
   .insight-strip { flex-wrap: wrap; padding: 14px 0; gap: 15px 0; } .strip-label { flex-basis: 100%; padding-left: 16px; font-size: 9px; } .strip-item { padding: 0 15px; display: block; } .strip-item:nth-child(2) { border-left: 0; } .strip-value { font-size: 19px; } .strip-description { display: block; font-size: 8px; margin-top: 3px; }
   .analysis-layout { display: block; margin-top: 31px; padding-bottom: 45px; } .analysis-sidebar { display: none; } .article-heading { font-size: 29px; margin-top: 16px; } .article-meta { gap: 11px; font-size: 9px; } .chart-toolbar { padding: 8px 10px; } .chart-title { font-size: 9px; } .chart-caption { font-size: 8px; padding: 11px; } .article-body { font-size: 13px; padding-top: 25px; } .article-body h3 { font-size: 19px; } .site-footer { gap: 20px; align-items: flex-start; font-size: 9px; } .footer-logo { display: block; margin-bottom: 8px; } .chart-dialog { padding: 16px; }
 }
+@media (max-width: 760px) { .profile-card { flex-wrap: wrap; gap: 12px; } .profile-cta { margin-left: 58px; } .footer-right { flex-wrap: wrap; gap: 12px; } .about-contact { flex-wrap: wrap; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { animation: none !important; transition: none !important; } }
+
