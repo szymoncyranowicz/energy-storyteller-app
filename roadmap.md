@@ -1,4 +1,5 @@
 # EnergyVis
+- [ ] Provide Polish instructions for hosting and connecting energyvis.pl.
 - [ ] Preserve the current colors and visual style while creating Home, Linkedin, Posts and About navigation.
 - [ ] Move the supplied article to its own page and verify navigation, reading and chart controls.
 - [ ] Rename the publication for the requested energyvis.pl domain without claiming it is connected.
