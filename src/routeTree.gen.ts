@@ -10,33 +10,44 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PostsEwolucjaRynkuEnergiiRouteImport } from './routes/posts.ewolucja-rynku-energii'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PostsEwolucjaRynkuEnergiiRoute =
+  PostsEwolucjaRynkuEnergiiRouteImport.update({
+    id: '/posts/ewolucja-rynku-energii',
+    path: '/posts/ewolucja-rynku-energii',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/posts/ewolucja-rynku-energii': typeof PostsEwolucjaRynkuEnergiiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/posts/ewolucja-rynku-energii': typeof PostsEwolucjaRynkuEnergiiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/posts/ewolucja-rynku-energii': typeof PostsEwolucjaRynkuEnergiiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/posts/ewolucja-rynku-energii'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/posts/ewolucja-rynku-energii'
+  id: '__root__' | '/' | '/posts/ewolucja-rynku-energii'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PostsEwolucjaRynkuEnergiiRoute: typeof PostsEwolucjaRynkuEnergiiRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +59,19 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/posts/ewolucja-rynku-energii': {
+      id: '/posts/ewolucja-rynku-energii'
+      path: '/posts/ewolucja-rynku-energii'
+      fullPath: '/posts/ewolucja-rynku-energii'
+      preLoaderRoute: typeof PostsEwolucjaRynkuEnergiiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PostsEwolucjaRynkuEnergiiRoute: PostsEwolucjaRynkuEnergiiRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
