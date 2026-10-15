@@ -1,4 +1,8 @@
-# XYZ
+# EnergyVis
+- [x] Provide Polish instructions for hosting and connecting energyvis.pl.
+- [x] Preserve the current colors and visual style while creating Home, Linkedin, Posts and About navigation.
+- [x] Move the supplied article to its own page and verify navigation, reading and chart controls.
+- [x] Rename the publication for the requested energyvis.pl domain without claiming it is connected.
 - [x] Diagnose mixed optimized dependency generations, pre-optimize the React/Radix graph, and verify page rendering and chart dialog without runtime errors.
 - [x] Create a modern Polish energy-risk analysis website.
 - [x] Place the supplied heatmap above the complete supplied post.

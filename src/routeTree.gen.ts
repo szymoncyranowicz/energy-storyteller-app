@@ -10,33 +10,94 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as LinkedinRouteImport } from './routes/linkedin'
+import { Route as PostsRouteImport } from './routes/posts'
+import { Route as PostsIndexRouteImport } from './routes/posts.index'
+import { Route as PostsEwolucjaRynkuEnergiiRouteImport } from './routes/posts.ewolucja-rynku-energii'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LinkedinRoute = LinkedinRouteImport.update({
+  id: '/linkedin',
+  path: '/linkedin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PostsRoute = PostsRouteImport.update({
+  id: '/posts',
+  path: '/posts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PostsIndexRoute = PostsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PostsRoute,
+} as any)
+const PostsEwolucjaRynkuEnergiiRoute =
+  PostsEwolucjaRynkuEnergiiRouteImport.update({
+    id: '/ewolucja-rynku-energii',
+    path: '/ewolucja-rynku-energii',
+    getParentRoute: () => PostsRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/linkedin': typeof LinkedinRoute
+  '/posts': typeof PostsRouteWithChildren
+  '/posts/ewolucja-rynku-energii': typeof PostsEwolucjaRynkuEnergiiRoute
+  '/posts/': typeof PostsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/linkedin': typeof LinkedinRoute
+  '/posts/ewolucja-rynku-energii': typeof PostsEwolucjaRynkuEnergiiRoute
+  '/posts': typeof PostsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/linkedin': typeof LinkedinRoute
+  '/posts': typeof PostsRouteWithChildren
+  '/posts/ewolucja-rynku-energii': typeof PostsEwolucjaRynkuEnergiiRoute
+  '/posts/': typeof PostsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/linkedin'
+    | '/posts'
+    | '/posts/ewolucja-rynku-energii'
+    | '/posts/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/about' | '/linkedin' | '/posts/ewolucja-rynku-energii' | '/posts'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/linkedin'
+    | '/posts'
+    | '/posts/ewolucja-rynku-energii'
+    | '/posts/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  LinkedinRoute: typeof LinkedinRoute
+  PostsRoute: typeof PostsRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +109,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/linkedin': {
+      id: '/linkedin'
+      path: '/linkedin'
+      fullPath: '/linkedin'
+      preLoaderRoute: typeof LinkedinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/posts': {
+      id: '/posts'
+      path: '/posts'
+      fullPath: '/posts'
+      preLoaderRoute: typeof PostsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/posts/': {
+      id: '/posts/'
+      path: '/'
+      fullPath: '/posts/'
+      preLoaderRoute: typeof PostsIndexRouteImport
+      parentRoute: typeof PostsRoute
+    }
+    '/posts/ewolucja-rynku-energii': {
+      id: '/posts/ewolucja-rynku-energii'
+      path: '/ewolucja-rynku-energii'
+      fullPath: '/posts/ewolucja-rynku-energii'
+      preLoaderRoute: typeof PostsEwolucjaRynkuEnergiiRouteImport
+      parentRoute: typeof PostsRoute
+    }
   }
 }
 
+interface PostsRouteChildren {
+  PostsEwolucjaRynkuEnergiiRoute: typeof PostsEwolucjaRynkuEnergiiRoute
+  PostsIndexRoute: typeof PostsIndexRoute
+}
+
+const PostsRouteChildren: PostsRouteChildren = {
+  PostsEwolucjaRynkuEnergiiRoute: PostsEwolucjaRynkuEnergiiRoute,
+  PostsIndexRoute: PostsIndexRoute,
+}
+
+const PostsRouteWithChildren = PostsRoute._addFileChildren(PostsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  LinkedinRoute: LinkedinRoute,
+  PostsRoute: PostsRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
