@@ -2,6 +2,8 @@ import { Link, createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
 import { ChartNoAxesCombined, Download, Expand, Share2, Check, Clock3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { linkedinTagUrl } from '@/lib/links';
+
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import heatmap from '@/assets/tge-heatmap.png.asset.json';
 
@@ -20,8 +22,9 @@ export const Route = createFileRoute('/posts/ewolucja-rynku-energii')({
 });
 
 function TagLink({ tag, keyword }: { tag: string; keyword: string }) {
-  return <a href={`https://www.linkedin.com/search/results/all/?keywords=%23${keyword}&origin=HASH_TAG_FROM_FEED`} target="_blank" rel="noreferrer">{tag}</a>;
+  return <a href={linkedinTagUrl(keyword)} target="_blank" rel="noreferrer">{tag}</a>;
 }
+
 
 function Article() {
   const [shared, setShared] = useState(false);
