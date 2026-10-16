@@ -1,5 +1,7 @@
 # EnergyVis
 - [x] Link the supplied LinkedIn profile URL from the Linkedin page, the About page and the site footer.
+- [x] Explain hosting under energyvis.pl and how to publish Python-made charts on the site.
+- [ ] Compare layout with the user's example screenshot (blocked: image could not be inspected this turn).
 
 - [x] Provide Polish instructions for hosting and connecting energyvis.pl.
 - [x] Preserve the current colors and visual style while creating Home, Linkedin, Posts and About navigation.
